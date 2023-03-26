@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  grabmaster:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pygrabber-grabmaster
+    command: python src/grabmaster.py ${GRABMASTER_NAME} ${CLUSTER_PATH}
+    volumes:
+      - ${CLUSTER_PATH}:/cluster
+    restart: always
+
+  grabber:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pygrabber-grabber
+    command: python src/grabber.py ${GRABBER_NAME} ${CLUSTER_PATH}
+    volumes:
+      - ${CLUSTER_PATH}:/cluster
+    depends_on:
+      - grabmaster
+    restart: always
+
+networks:
+  default:
+    driver: bridge

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pygrabber"
+version = "0.1.0"
+description = "A job queue management system for distributed computing."
+authors = ["Meir Michanie <meirm@riunx.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+toml = "^0.10.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+grabber = "pygrabber.grabber:main"

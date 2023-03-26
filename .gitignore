@@ -1,0 +1,8 @@
+*.swp
+*.pyc
+__cache__
+env
+.env
+build
+dist
+cluster/
