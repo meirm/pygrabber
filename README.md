@@ -22,9 +22,9 @@ Customize the script:
 
 ```bash
 python grabber.py
-The script will start polling for data and writing it to a file in the data directory.
-```
 
+```
+The script will start polling for data and writing it to a file in the data directory.
 ## Usage
 PyGrabber uses a simple polling mechanism to grab data from a source system. The main logic of the script is contained in the run method, which is called by the __init__ method when an instance of the PyGrabber class is created.
 
