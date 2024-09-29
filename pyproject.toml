@@ -1,15 +1,15 @@
 [tool.poetry]
-name = "pygrabber"
-version = "0.1.0"
+name = "script-grabber"
+version = "0.1.3"
 description = "A job queue management system for distributed computing."
 authors = ["Meir Michanie <meirm@riunx.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "pygrabber", from = "src"}]
+packages = [{include = "script_grabber", from = "src"}]
 
 [tool.poetry.scripts]
 # Register grabber.py as a CLI entry point
-grabber = "pygrabber.grabber:main"
+grabber = "script_grabber.grabber:main"
 
 [tool.poetry.dependencies]
 python = "^3.9"

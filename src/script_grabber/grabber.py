@@ -208,15 +208,20 @@ class Grabber:
         return None
 
     def run_job(self) -> None:
+        # Convert running_job_path to a Path object
+        self.running_job_path = Path(self.running_job_path)
+
+        # Ensure the job file exists before trying to execute it
+        if not self.running_job_path.exists():
+            self.logger.error(f"Job file {self.running_job_path} does not exist.")
+            return
         # Open the job file
         try:
-            with open(str(self.running_job_path), "rb") as f:
-                # Execute the job
-                process = subprocess.run([sys.executable, "-"],
-                                        stdin=f,
+            # Execute the job
+            process = subprocess.run([sys.executable, str(self.running_job_path)],
                                         stdout=subprocess.PIPE,
                                         stderr=subprocess.PIPE,
-                                        cwd=str(self.running_job_path.parent))
+                                        cwd=str(self.clusterpath))
         except FileNotFoundError:
             # Failed to open the file, it was already picked up by another process
             return
@@ -236,6 +241,11 @@ class Grabber:
         # Move the job file to the appropriate destination
         shutil.move(str(self.running_job_path), str(dest_path))
 
+        # Write the stdout and stderr to the their respective log files
+        with open(str(log_path.with_suffix(".out")), "wb") as f:
+            f.write(process.stdout)
+        with open(str(log_path.with_suffix(".err")), "wb") as f:
+            f.write(process.stderr)
         # Write the log file
         with open(str(log_path), "a") as f:
             f.write(f"{self.job_file},{datetime.now().strftime('%Y%m%d%H%M%S')},"

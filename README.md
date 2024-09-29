@@ -1,5 +1,6 @@
 # PyGrabber
-PyGrabber is a Python script that implements a simple polling mechanism to grab data from a source system. It can be used as a starting point for building a custom data extraction tool that fits your specific needs.
+PyGrabber is a Python script that implements a simple polling mechanism to grab python scripts from a source system and execute it. The script is designed to be run as a standalone process and can be controlled using Unix signals.
+
 
 ## Getting started
 1. Clone the repository:
@@ -13,10 +14,16 @@ cd pygrabber
 
 ```bash
 pip install -r requirements.txt
-Customize the script:
-```
 
-3. Open grabber.py in your favorite text editor and modify the variables in the __init__ method to match your environment and requirements. For example, you might need to change the clusterpath variable to point to the location of your data cluster, or change the poll_interval variable to control how often the script should poll for data.
+```
+3. Poetry build and install:
+
+```bash
+poetry build
+poetry install
+
+```
+You might need to change the clusterpath variable to point to the location of your data cluster, or change the poll_interval variable to control how often the script should poll for data.
 
 4. Run the script:
 
