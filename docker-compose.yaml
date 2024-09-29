@@ -16,7 +16,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: pygrabber-grabber
-    command: python src/grabber.py ${GRABBER_NAME} ${CLUSTER_PATH}
+    command: python grabber ${GRABBER_NAME} ${CLUSTER_PATH}
     volumes:
       - ${CLUSTER_PATH}:/cluster
     depends_on:
