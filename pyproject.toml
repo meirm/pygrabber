@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "script-grabber"
-version = "0.1.3"
+version = "0.1.4"
 description = "A job queue management system for distributed computing."
 authors = ["Meir Michanie <meirm@riunx.com>"]
 license = "MIT"

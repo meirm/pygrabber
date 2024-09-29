@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-The `pygrabber` package provides a distributed job scheduling system based on a master-grabber architecture.
+The `script_grabber` package provides a distributed job scheduling system based on a master-grabber architecture.
 
 This package consists of two main scripts:
 - `grabmaster.py`: A Python script that manages the job queue and schedules job execution by grabbers.
@@ -22,11 +22,11 @@ License: MIT
 # Import third-party modules here.
 
 # Import local modules here.
-__package__ = "pygrabber"
+__package__ = "script_grabber"
 
 __author__ = "Meir Michanie"
 __email__ = "meirm@riunx.com"
-__version__ = "0.1.0"
+__version__ = "0.1.4"
 
 
 from . import grabber

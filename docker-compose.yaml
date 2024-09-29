@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: pygrabber-grabmaster
+    container_name: script_grabber-grabmaster
     command: python src/grabmaster.py ${GRABMASTER_NAME} ${CLUSTER_PATH}
     volumes:
       - ${CLUSTER_PATH}:/cluster
@@ -15,7 +15,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: pygrabber-grabber
+    container_name: script_grabber-grabber
     command: python grabber ${GRABBER_NAME} ${CLUSTER_PATH}
     volumes:
       - ${CLUSTER_PATH}:/cluster
